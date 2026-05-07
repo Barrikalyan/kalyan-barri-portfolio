@@ -2,7 +2,7 @@ export interface Project {
   _id: string
   title: string
   description: string
-  image: {
+  image?: {
     asset: {
       url: string
     }
@@ -18,7 +18,7 @@ export interface Certificate {
   title: string
   issuer: string
   date: string
-  image: {
+  image?: {
     asset: {
       url: string
     }
@@ -33,7 +33,7 @@ export interface PersonalInfo {
   bio: string
   email: string
   phone?: string
-  image: {
+  image?: {
     asset: {
       url: string
     }

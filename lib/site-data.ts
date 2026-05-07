@@ -1,5 +1,5 @@
-import { projectsAPI, skillsAPI, certificatesAPI } from "@/lib/api-client";
-import type { Certificate, PersonalInfo, Project, Skill } from "@/lib/types";
+import { projectsAPI, skillsAPI, certificatesAPI } from "./api-client";
+import type { Certificate, PersonalInfo, Project, Skill } from "./types";
 
 export type PortfolioData = {
   personalInfo: PersonalInfo;
@@ -18,7 +18,7 @@ const fallbackPersonalInfo: PersonalInfo = {
   phone: "+91 6302348336",
   image: {
     asset: {
-      url: "./public/images/kalyan 1.jpeg",
+      url: "/images/kalyan 1.jpeg",
     },
   },
   socialLinks: {
@@ -47,7 +47,7 @@ const fallbackProjects: Project[] = [
   featured: true,
   image: {
     asset: {
-      url: "./public/images/relic.png",
+          url: "/images/relic.png",
     },
   },
 },
@@ -71,7 +71,7 @@ const fallbackProjects: Project[] = [
   featured: true,
   image: {
     asset: {
-      url: "./public/images/quantum.png",
+        url: "/images/quantum.png",
     },
   },
 },
@@ -101,7 +101,7 @@ const fallbackProjects: Project[] = [
     featured: false,
     image: {
       asset: {
-        url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+          url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
       },
     },
   },
@@ -113,22 +113,10 @@ const fallbackCertificates: Certificate[] = [
     title: "ARTIFICIAL INTELLIGENCE FUNDAMENTALS",
     issuer: "IBM",
     date: "2025",
-    certificateUrl: "./public/certificates/ai fundamentals.jpeg",
+    certificateUrl: "/certificates/ai fundamentals.jpeg",
     image: {
       asset: {
-        url: "./public/certificates/ai fundamentals.jpeg",
-      },
-    },
-  },
-  {
-    _id: "certificate-3",
-    title: "Cyber Security Fundamentals",
-    issuer: "Coursera ",
-    date: "2025",
-    certificateUrl: "./public/certificates/cyberfundamentals.jpeg",
-    image: {
-      asset: {
-        url: "./public/certificates/cyberfundamentals.jpeg",
+        url: "/certificates/ai fundamentals.jpeg",
       },
     },
   },
@@ -137,34 +125,35 @@ const fallbackCertificates: Certificate[] = [
     title: "Ethical Hacking",
     issuer: "Infosys Springboard",
     date: "2025",
-    certificateUrl: "./public/certificates/ethical hacking.jpeg",
+    certificateUrl: "/certificates/ethical hacking.jpeg",
     image: {
       asset: {
-        url: "./public/certificates/ethical hacking.jpeg",
+        url: "/certificates/ethical hacking.jpeg",
       },
     },
   },
+   {
+    _id: "certificate-3",
+    title: "Cyber Security Fundamentals",
+    issuer: "Coursera ",
+    date: "2025",
+    certificateUrl: "/certificates/cyberfundamentals.jpeg",
+    image: {
+      asset: {
+        url: "/certificates/cyberfundamentals.jpeg",
+      },
+    },
+  },
+ 
   {
     _id: "certificate-4",
     title: "Python for Data Science",
     issuer: "IBM",
     date: "2024",
-    certificateUrl: "./public/certificates/datascience.jpeg",
+    certificateUrl: "/certificates/datascience.jpeg",
     image: {
       asset: {
-        url: "./public/certificates/datascience.jpeg",
-      },
-    },
-  },
-  {
-    _id: "certificate-5",
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    date: "2024",
-    certificateUrl: "https://example.com/",
-    image: {
-      asset: {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        url: "/certificates/datascience.jpeg",
       },
     },
   },
@@ -208,48 +197,11 @@ export async function getPortfolioData(): Promise<PortfolioData> {
       skillsAPI.getAll().catch(() => null),
     ]);
 
-    const mergeRecords = <T extends { _id: string; _updatedAt?: string }>(
-      fallback: T[],
-      incoming: T[] | null,
-    ) => {
-      if (!incoming) {
-        return fallback;
-      }
-
-      const incomingById = new Map(incoming.map((item) => [item._id, item] as const));
-      const fallbackById = new Map(fallback.map((item) => [item._id, item] as const));
-      const merged: T[] = [];
-
-      fallback.forEach((fallbackItem) => {
-        const liveItem = incomingById.get(fallbackItem._id);
-
-        if (!liveItem) {
-          merged.push(fallbackItem);
-          return;
-        }
-
-        if (liveItem._updatedAt) {
-          merged.push(liveItem);
-          return;
-        }
-
-        merged.push({ ...liveItem, ...fallbackItem });
-      });
-
-      incoming.forEach((liveItem) => {
-        if (!fallbackById.has(liveItem._id)) {
-          merged.push(liveItem);
-        }
-      });
-
-      return merged;
-    };
-
     return {
       personalInfo: fallbackPersonalInfo,
-      projects: mergeRecords(fallbackProjects, projects),
-      certificates: mergeRecords(fallbackCertificates, certificates),
-      skills: mergeRecords(fallbackSkills, skills),
+      projects: projects?.length > 0 ? projects : fallbackProjects,
+      certificates: certificates?.length > 0 ? certificates : fallbackCertificates,
+      skills: skills?.length > 0 ? skills : fallbackSkills,
     };
   } catch {
     return {

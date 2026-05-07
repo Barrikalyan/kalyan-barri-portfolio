@@ -42,7 +42,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
             <CtaButton href="#projects">
               View Projects <FiArrowRight className="ml-2" />
             </CtaButton>
-            <CtaButton href="./public/kalyan resume.pdf" variant="secondary">
+            <CtaButton href="/kalyan resume.pdf" variant="secondary">
               Download Resume <FiDownload className="ml-2" />
             </CtaButton>
           </div>
@@ -65,11 +65,17 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
               </div>
               <div className="mt-8 flex items-center justify-center">
                 <div className="relative h-64 w-64 rounded-full bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.45),_rgba(15,23,42,0.1))] p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
-                  <img
-                    src={personalInfo.image.asset.url}
-                    alt={personalInfo.name}
-                    className="h-full w-full rounded-full object-cover"
-                  />
+                  {personalInfo.image?.asset?.url ? (
+                    <img
+                      src={personalInfo.image.asset.url}
+                      alt={personalInfo.name}
+                      className="h-full w-full rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center rounded-full bg-neutral-100 text-sm text-neutral-600">
+                      No profile image
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">

@@ -9,6 +9,13 @@ interface ProjectsManagerProps {
   onRefresh: () => void;
 }
 
+const toBase64 = (file: File) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result as string);
+  reader.onerror = reject;
+});
+
 export function ProjectsManager({ projects, onRefresh }: ProjectsManagerProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
@@ -70,6 +77,11 @@ export function ProjectsManager({ projects, onRefresh }: ProjectsManagerProps) {
     setIsUploading(true);
 
     try {
+      let imageUrl = editingProject?.image?.asset?.url || "";
+      if (imageFile) {
+        imageUrl = await toBase64(imageFile);
+      }
+
       const projectData = {
         title: formData.title,
         description: formData.description,
@@ -77,6 +89,11 @@ export function ProjectsManager({ projects, onRefresh }: ProjectsManagerProps) {
         githubUrl: formData.githubUrl,
         liveUrl: formData.liveUrl,
         featured: formData.featured,
+        image: {
+          asset: {
+            url: imageUrl
+          }
+        }
       };
 
       if (editingProject) {

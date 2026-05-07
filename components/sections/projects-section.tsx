@@ -29,7 +29,11 @@ description="Explore a collection of real-world projects focused on AI, full-sta
             className="glass-panel overflow-hidden rounded-[1.5rem] group border border-transparent hover:border-[color:var(--accent)]/30 hover:shadow-[0_12px_40px_rgba(37,99,235,0.15)] transition-all duration-300 flex flex-col"
           >
             <div className="relative overflow-hidden shrink-0">
-              <img src={project.image.asset.url} alt={project.title} className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              {project.image?.asset?.url ? (
+                <img src={project.image.asset.url} alt={project.title} className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <div className="flex h-48 w-full items-center justify-center bg-neutral-100 text-sm text-neutral-600">No image available</div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div className="flex flex-col flex-1 p-5">

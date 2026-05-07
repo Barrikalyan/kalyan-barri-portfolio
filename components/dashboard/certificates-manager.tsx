@@ -9,6 +9,13 @@ interface CertificatesManagerProps {
   onRefresh: () => void;
 }
 
+const toBase64 = (file: File) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result as string);
+  reader.onerror = reject;
+});
+
 export function CertificatesManager({ certificates, onRefresh }: CertificatesManagerProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCertificate, setEditingCertificate] = useState<Certificate | null>(null);
@@ -64,11 +71,21 @@ export function CertificatesManager({ certificates, onRefresh }: CertificatesMan
     setIsUploading(true);
 
     try {
+      let imageUrl = editingCertificate?.image?.asset?.url || "";
+      if (imageFile) {
+        imageUrl = await toBase64(imageFile);
+      }
+
       const certificateData = {
         title: formData.title,
         issuer: formData.issuer,
         date: formData.date,
         certificateUrl: formData.certificateUrl,
+        image: {
+          asset: {
+            url: imageUrl
+          }
+        }
       };
 
       if (editingCertificate) {

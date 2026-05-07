@@ -108,10 +108,10 @@
     "proficiency": 93
   },
   {
-    "_id": "md0smzc5o",
+    "_id": "axxbedzht",
     "_type": "skill",
-    "_createdAt": "2026-05-07T06:44:22.658Z",
-    "_updatedAt": "2026-05-07T06:44:22.658Z",
+    "_createdAt": "2026-05-07T08:38:47.991Z",
+    "_updatedAt": "2026-05-07T08:38:47.991Z",
     "name": "ruby",
     "category": "Frontend",
     "proficiency": 75
