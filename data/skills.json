@@ -1,0 +1,119 @@
+[
+  {
+    "_id": "skill-1",
+    "category": "Frontend",
+    "name": "HTML",
+    "proficiency": 95
+  },
+  {
+    "_id": "skill-2",
+    "category": "Frontend",
+    "name": "CSS",
+    "proficiency": 90
+  },
+  {
+    "_id": "skill-3",
+    "category": "Frontend",
+    "name": "JavaScript",
+    "proficiency": 92
+  },
+  {
+    "_id": "skill-4",
+    "category": "Frontend",
+    "name": "React",
+    "proficiency": 95
+  },
+  {
+    "_id": "skill-5",
+    "category": "Frontend",
+    "name": "Tailwind CSS",
+    "proficiency": 95
+  },
+  {
+    "_id": "skill-6",
+    "category": "Backend",
+    "name": "Python",
+    "proficiency": 88
+  },
+  {
+    "_id": "skill-7",
+    "category": "Backend",
+    "name": "Java",
+    "proficiency": 85
+  },
+  {
+    "_id": "skill-8",
+    "category": "Backend",
+    "name": "C",
+    "proficiency": 80
+  },
+  {
+    "_id": "skill-9",
+    "category": "Backend",
+    "name": "C++",
+    "proficiency": 85
+  },
+  {
+    "_id": "skill-10",
+    "category": "Backend",
+    "name": "Node.js",
+    "proficiency": 88
+  },
+  {
+    "_id": "skill-11",
+    "category": "Backend",
+    "name": "Express.js",
+    "proficiency": 85
+  },
+  {
+    "_id": "skill-12",
+    "category": "Backend",
+    "name": "Django/Flask",
+    "proficiency": 80
+  },
+  {
+    "_id": "skill-13",
+    "category": "Backend",
+    "name": "API/REST",
+    "proficiency": 90
+  },
+  {
+    "_id": "skill-14",
+    "category": "Database",
+    "name": "MongoDB",
+    "proficiency": 85
+  },
+  {
+    "_id": "skill-15",
+    "category": "Database",
+    "name": "MySQL",
+    "proficiency": 82
+  },
+  {
+    "_id": "skill-16",
+    "category": "AI/ML",
+    "name": "Prompt Engineering",
+    "proficiency": 89
+  },
+  {
+    "_id": "skill-17",
+    "category": "AI/ML",
+    "name": "AI Agents n8n Workflow",
+    "proficiency": 86
+  },
+  {
+    "_id": "skill-18",
+    "category": "Tools",
+    "name": "Git",
+    "proficiency": 93
+  },
+  {
+    "_id": "md0smzc5o",
+    "_type": "skill",
+    "_createdAt": "2026-05-07T06:44:22.658Z",
+    "_updatedAt": "2026-05-07T06:44:22.658Z",
+    "name": "ruby",
+    "category": "Frontend",
+    "proficiency": 75
+  }
+]
