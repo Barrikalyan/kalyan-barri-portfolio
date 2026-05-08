@@ -106,14 +106,5 @@
     "category": "Tools",
     "name": "Git",
     "proficiency": 93
-  },
-  {
-    "_id": "axxbedzht",
-    "_type": "skill",
-    "_createdAt": "2026-05-07T08:38:47.991Z",
-    "_updatedAt": "2026-05-07T08:38:47.991Z",
-    "name": "ruby",
-    "category": "Frontend",
-    "proficiency": 75
   }
 ]

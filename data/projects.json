@@ -48,7 +48,7 @@
     "_id": "e1ob0zrjz",
     "_type": "project",
     "_createdAt": "2026-05-07T08:45:20.276Z",
-    "_updatedAt": "2026-05-07T08:47:47.149Z",
+    "_updatedAt": "2026-05-07T09:05:37.401Z",
     "title": "Employee Salary Prediction",
     "description": "Developed an AI/ML-based web application that predicts whether an employee’s salary exceeds a certain income threshold based on demographic and professional details. The system uses machine learning algorithms trained on the Adult Census Income dataset to analyze factors such as education, occupation, working hours, marital status, and experience.",
     "technologies": [
