@@ -75,36 +75,7 @@ const fallbackProjects: Project[] = [
     },
   },
 },
- {
-    _id: "project-4",
-    title: "Machine Learning Pipeline",
-    description:
-      "An end-to-end ML pipeline for data preprocessing, model training, and deployment. Features automated workflow orchestration, experiment tracking, and real-time monitoring of model performance.",
-    technologies: ["Python", "TensorFlow", "FastAPI", "Docker", "PostgreSQL", "Kubernetes"],
-    githubUrl: "https://github.com/",
-    liveUrl: "https://example.com/",
-    featured: false,
-    image: {
-      asset: {
-        url: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
-      },
-    },
-  },
-  {
-    _id: "project-5",
-    title: "Content Management System",
-    description:
-      "A modern headless CMS built with Sanity and Next.js. Features rich text editing, real-time collaboration, version control, and AI-powered content suggestions for blog management.",
-    technologies: ["Next.js", "Sanity", "TypeScript", "Tailwind CSS", "React Query", "Vercel"],
-    githubUrl: "https://github.com/",
-    liveUrl: "https://example.com/",
-    featured: false,
-    image: {
-      asset: {
-          url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-      },
-    },
-  },
+
 ];
 
 const fallbackCertificates: Certificate[] = [
